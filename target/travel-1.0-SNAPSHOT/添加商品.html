@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+</head>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(function (){
+
+        function checkBrand(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var brand=$("#w_brand").val();
+            var flag=reg.test(brand);
+            if(flag){
+                $("#w_brand").css("border","");
+            }else{
+                $("#w_brand").css("border","1px solid red");
+            }
+            return flag;
+        }
+
+        function checkName(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var name=$("#w_name").val();
+            var flag=reg.test(name);
+            if(flag){
+                $("#w_name").css("border","");
+            }else{
+                $("#w_name").css("border","1px solid red");
+            }
+            return flag;
+        }
+        function checkPrice(){
+            var reg=/^[0-9.]+$/;
+            var price=$("#w_price").val();
+            var flag=reg.test(price);
+            if(flag){
+                $("#w_price").css("border","");
+            }else{
+                $("#w_price").css("border","1px solid red");
+            }
+            return flag;
+        }
+        function checkNum(){
+            var reg=/^[0-9]+$/;
+            var num=$("#w_num").val();
+            var flag=reg.test(num);
+            if(flag){
+                $("#w_num").css("border","");
+            }else{
+                $("#w_num").css("border","1px solid red");
+            }
+            return flag;
+        }
+        $("#w_name").blur(checkName);
+        $("#w_brand").blur(checkBrand);
+        $("#w_price").blur(checkPrice);
+        $("#w_num").blur(checkNum);
+    });
+
+</script>
+<body>
+<form>
+    <input id="w_brand"  type="text" placeholder="请输入品牌">
+    <input id="w_name"  type="text" placeholder="请输入名称">
+    <input id="w_price"  type="text" placeholder="请输入售价">
+    <input id="w_num"  type="text" placeholder="请输入数量">
+
+</form>
+<div>
+    <a>保存</a>
+    <a>保存并继续添加</a>
+    <a href="商品管理.html">返回</a>
+</div>
+</body>
+</html>

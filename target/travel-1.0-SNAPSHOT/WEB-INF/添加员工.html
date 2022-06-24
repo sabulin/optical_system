@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加员工</title>
+</head>
+<script src="Jquery/jquery-1.4.2.js"></script>
+<script src="Jquery/jquery-1.8.3.js"></script>
+<script src="Jquery/jquery-1.11.0.js"></script>
+<script src="Jquery/jquery-2.1.0.js"></script>
+<script src="Jquery/jquery-3.3.1.js"></script>
+<script src="Jquery/jquery-3.6.0.js"></script>
+<script>
+    $(function (){
+
+        function checkName(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var password=$("#w_name").val();
+            var flag=reg.test(password);
+            if(flag){
+                $("#w_name").css("border","");
+            }else{
+                $("#w_name").css("border","1px solid red");
+            }
+            return flag;
+        }
+
+        function checkPassword(){
+            var reg=/^\w{8,20}$/;
+            var password=$("#w_password").val();
+            var flag=reg.test(password);
+            if(flag){
+                $("#w_password").css("border","");
+            }else{
+                $("#w_password").css("border","1px solid red");
+            }
+            return flag;
+        }
+        $("#w_name").blur(checkName);
+        $("#w_password").blur(checkPassword);
+    });
+
+</script>
+<body>
+<form>
+    <input id="w_name" name="old_password" type="text" placeholder="请输入员工姓名">
+    <input id="w_password" name="new_password1" type="text" placeholder="请输入密码">
+
+</form>
+<div>
+    <a>保存</a>
+    <a>保存并继续添加</a>
+    <a href="员工管理.html">返回</a>
+</div>
+</body>
+</html>

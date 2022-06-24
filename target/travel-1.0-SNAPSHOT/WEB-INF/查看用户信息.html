@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看用户信息</title>
+</head>
+<script src="Jquery/jquery-1.4.2.js"></script>
+<script src="Jquery/jquery-1.8.3.js"></script>
+<script src="Jquery/jquery-1.11.0.js"></script>
+<script src="Jquery/jquery-2.1.0.js"></script>
+<script src="Jquery/jquery-3.3.1.js"></script>
+<script src="Jquery/jquery-3.6.0.js"></script>
+<script>
+    $(function (){
+        var str="<table border='1' width='800px' height='20px'>";
+        str+=" <tr><th>用户id</th><th>用户姓名</th><th>用户密码</th><th>用户手机号码</th><tr>";
+        var temp="<tr> <td>001</td><td>胡宗宪</td><td>12345678</td><td>11199900011</td></tr>";
+        for(var i=0;i<5;i++){
+            str+=temp;
+        }
+        str+="</table>";
+        $("#div1").html(str);
+
+        $("#w2").click(function (){
+            location.href="品牌管理.html";
+        });
+        $("#w3").click(function (){
+            location.href="商品管理.html";
+        });
+        $("#w4").click(function (){
+            location.href="员工管理.html";
+        });
+        $("#w5").click(function (){
+            location.href="订单管理.html";
+        });
+        $("#w6").click(function (){
+            location.href="查看用户信息.html";
+        });
+    });
+</script>
+<body>
+<div>
+    <table border="1">
+        <tr><td id="w2">品牌管理</td></tr>
+        <tr><td id="w3">商品管理</td></tr>
+        <tr><td id="w4">员工管理</td></tr>
+        <tr><td id="w5">订单管理</td></tr>
+        <tr><td id="w6">查看用户信息</td></tr>
+
+    </table>
+</div >
+<div id="div1">
+
+</div>
+<div>
+
+</div>
+<div>
+
+    <a href="管理人员登录.html">退出登录</a>
+</div>
+</body>
+</html>

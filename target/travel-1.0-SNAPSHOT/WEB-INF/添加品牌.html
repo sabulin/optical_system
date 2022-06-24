@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加品牌</title>
+</head>
+<script src="Jquery/jquery-1.4.2.js"></script>
+<script src="Jquery/jquery-1.8.3.js"></script>
+<script src="Jquery/jquery-1.11.0.js"></script>
+<script src="Jquery/jquery-2.1.0.js"></script>
+<script src="Jquery/jquery-3.3.1.js"></script>
+<script src="Jquery/jquery-3.6.0.js"></script>
+<script>
+    $(function (){
+
+        function checkBrand(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var brand=$("#w_brand").val();
+            var flag=reg.test(brand);
+            if(flag){
+                $("#w_brand").css("border","");
+            }else{
+                $("#w_brand").css("border","1px solid red");
+            }
+            return flag;
+        }
+
+        function checkKind(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var kind=$("#w_kind").val();
+            var flag=reg.test(kind);
+            if(flag){
+                $("#w_kind").css("border","");
+            }else{
+                $("#w_kind").css("border","1px solid red");
+            }
+            return flag;
+        }
+
+        $("#w_kind").blur(checkKind);
+        $("#w_brand").blur(checkBrand);
+
+    });
+
+</script>
+<body>
+<form>
+    <input id="w_brand"  type="text" placeholder="请输入品牌">
+    <input id="w_kind"  type="text" placeholder="请输入分类">
+
+
+</form>
+<div>
+    <a>保存</a>
+    <a>保存并继续添加</a>
+    <a href="品牌管理.html">返回</a>
+</div>
+</body>
+</html>

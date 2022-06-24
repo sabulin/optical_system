@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(function (){
+       $("#w_login").click(function (){
+           location.href="用户登录.html";
+           return false;
+       });
+       $("#w_register").click(function (){
+           $.post("user/register",$("#registerForm").serialize(),function(data){
+               if(data["flag"]==true)
+                {
+                    alert("sucess");
+                    location.href="用户登录.html";
+                }
+                else{
+                    alert("用户名存在");
+                }
+               return false;
+            });
+           return false;
+       });
+
+        function checkName(){
+            var reg=/^[\u4e00-\u9fa5A-Za-z\.]{2,120}$/;
+            var password=$("#w_name").val();
+            var flag=reg.test(password);
+            if(flag){
+                $("#w_name").css("border","");
+            }else{
+                $("#w_name").css("border","1px solid red");
+            }
+            return flag;
+        }
+
+        function checkPassword(){
+            var reg=/^\w{8,20}$/;
+            var password=$("#w_password").val();
+            var flag=reg.test(password);
+            if(flag){
+                $("#w_password").css("border","");
+            }else{
+                $("#w_password").css("border","1px solid red");
+            }
+            return flag;
+        }
+        function checkTelephone(){
+            var reg=/^[0-9]{11}$/;
+            var password=$("#w_telephone").val();
+            var flag=reg.test(password);
+            if(flag){
+                $("#w_telephone").css("border","");
+            }else{
+                $("#w_telephone").css("border","1px solid red");
+            }
+            return flag;
+        }
+        $("#w_name").blur(checkName);
+        $("#w_password").blur(checkPassword);
+        $("#w_telephone").blur(checkTelephone);
+    });
+</script>
+<body>
+<form id="registerForm">
+    <table align="center">
+        <tr>
+            <td>
+                姓名
+            </td>
+            <td>
+                <input id="w_name" name="name" type="text" placeholder="请输入姓名">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码
+            </td>
+            <td>
+                <input id="w_password" name="password" type="text" placeholder="请输入密码">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                手机号
+            </td>
+            <td>
+                <input id="w_telephone" name="telephone" type="text" placeholder="请输入电话号码">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="w_register">点击注册</button>
+            </td>
+            <td>
+                <button id="w_login" >返回登录界面</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户个人信息</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(function (){
+            $.post('user/findOne',{},function (data){
+                for (var key in data){
+                    alert(key+data[key]);
+                }
+                $("#showTable").html('<tr><th>id</th><th>姓名</th><th>密码</th><th>电话号码</th></tr>\n' +
+                    '        <tr><td>' +
+                    data["id"] +
+                    '</td>' +
+                    '<td>' +
+                    data["name"] +
+                    '</td><td>' +
+                    data["password"] +
+                    '</td>' +
+                    '<td>' +
+                    data["telephone"] +
+                    '</td></tr>\n' +
+                    '        <tr><td>禁止修改</td><td>点击修改</td><td>点击修改</td><td>点击修改</td></tr>\n');
+            });
+
+        })
+
+
+
+    </script>
+</head>
+<body>
+<div>
+    <a href="用户个人信息.html">查看个人信息</a>
+    <a href="浏览商品.html">浏览商品</a>
+    <a href="查看购物车.html">查看购物车</a>
+    <a href="查看配镜记录.html">查看配镜记录</a>
+</div>
+<div id="tablediv">
+    <table border='1' width='800px' height='20px' id="showTable">
+<!--        <tr><th>id</th><th>姓名</th><th>密码</th><th>电话号码</th></tr>-->
+<!--        <tr><td>001</td><td>周翔宇</td><td>123456</td><td>11122233344</td></tr>-->
+<!--        <tr><td>禁止修改</td><td>点击修改</td><td>点击修改</td><td>点击修改</td></tr>-->
+    </table>
+</div>
+<div>
+    <a href="用户登录.html">退出登录</a>
+</div>
+</body>
+</html>

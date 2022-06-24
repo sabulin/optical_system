@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看购物车</title>
+</head>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(function (){
+        var str="<table border='1' width='300px' height='20px' >";
+        str+=" <tr><th>品牌</th><th>具体名称</th><th>售价</th><th>数量</th><th>操作</th><tr>";
+        var temp="<tr> <td>赛里斯</td><td>镜片</td><td>500</td><td>2</td><td>移出购物车</td></tr>";
+        for(var i=0;i<7;i++){
+            str+=temp;
+        }
+        str+="</table>";
+
+        $("#w_table1").html(str);
+    });
+
+</script>
+<body>
+<div>
+    <a href="用户个人信息.html">查看个人信息</a>
+    <a href="浏览商品.html">浏览商品</a>
+    <a href="查看购物车.html">查看购物车</a>
+    <a href="查看配镜记录.html">查看配镜记录</a>
+</div>
+<div id="w_table1">
+
+</div>
+<div>
+    <table>
+        <tr><td>首页</td><td>上一页</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>下一页</td><td>末页</td></tr>
+    </table>
+</div>
+<div>结算</div>
+<div>
+    <a href="用户登录.html">退出登录</a>
+</div>
+</body>
+</html>
